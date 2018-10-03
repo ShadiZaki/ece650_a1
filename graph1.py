@@ -38,14 +38,9 @@ class Graph:
         intersection.create_ID()
         intersection.set_xcoor(xcoor)
         intersection.set_ycoor(ycoor)
-        intersection.set_as_intersection()
         intersection.intersection_streets.append(edge1.get_street())
         intersection.intersection_streets.append(edge2.get_street())
-        intersection.neighbors.append(edge1.get_vertex1().get_ID())
-        intersection.neighbors.append(edge1.get_vertex2().get_ID())
-        intersection.neighbors.append(edge2.get_vertex1().get_ID())
-        intersection.neighbors.append(edge2.get_vertex2().get_ID())
-        
+                
         for i in self.intersections:
             if(i.get_xcoor() == intersection.get_xcoor() and i.get_ycoor() == intersection.get_ycoor()):
                 intersection.set_ID(i.get_ID())

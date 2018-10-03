@@ -7,6 +7,7 @@ class Vertex:
         self.__xcoor = 0
         self.__ycoor = 0
         self.__street = None
+        self.intersection_streets = []
         
     def create_ID(self):
         self.__ID = GlobalID + 1
@@ -33,10 +34,6 @@ class Vertex:
         self.__street = new_street
         return
     
-    def set_as_intersection(self):
-        self.__isintersection = True
-        return
-
     def get_xcoor(self):
         return self.__xcoor
     
@@ -45,6 +42,4 @@ class Vertex:
     
     def get_street(self):
         return self.__street
-    
-    def is_intersection(self):
-        return self.__isintersection
+
