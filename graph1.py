@@ -1,3 +1,4 @@
+import sys
 from vertex1 import Vertex
 from edge1 import Edge
     
@@ -393,7 +394,7 @@ class Graph:
                 new_edge.set_vertex2(self.__vertex_list[j+1])
                 self.__edges_list.append(new_edge)
         else:
-            print "Error: street has already been added"
+            sys.stderr.write("Error: street has already been added \n")
 
         return
 
@@ -408,7 +409,7 @@ class Graph:
             self.__vertex_list[:] = [i for i in self.__vertex_list if i.get_street() != street_name]
             self.__edges_list[:] = [i for i in self.__edges_list if i.get_street() != street_name]
         else:
-            print "Error: street does not exist"
+            sys.stderr.write("Error: street does not exist \n")
         
         return
 
@@ -419,13 +420,13 @@ class Graph:
 
     def output_graph(self):
         self.__generate_graph()
-        print "V = {"
+        sys.stdout.write("V = { \n")
         for i in self.__updated_vertex_list:
-            print str(i.get_ID()) + ":" + " (" + "%g" % round(float(i.get_xcoor()),2) + "," + "%g" % round(float(i.get_ycoor()),2) + ")"
-        print "}"
+            sys.stdout.write(str(i.get_ID()) + ":" + " (" + "%g" % round(float(i.get_xcoor()),2) + "," + "%g" % round(float(i.get_ycoor()),2) + ") \n")
+        sys.stdout.write("} \n")
         
-        print "E = {"
+        sys.stdout.write("E = { \n")
         for i in self.__updated_edges_list:
-            print "<" + str(i.get_vertex1().get_ID()) + "," + str(i.get_vertex2().get_ID()) + ">,"
-        print "}"
+            sys.stdout.write("<" + str(i.get_vertex1().get_ID()) + "," + str(i.get_vertex2().get_ID()) + ">, \n")
+        sys.stdout.write("} \n")
         return

@@ -26,61 +26,61 @@ class Parser:
                 paranthesis_count += 1
         
         if(paranthesis_count > coor_len):
-            print "Error: invalid command"
+            sys.stderr.write("Error: invalid command \n")
             return None
         elif(paranthesis_count < coor_len):
-            print "Error: invalid command"
+            sys.stderr.write("Error: invalid command \n")
             return None
         
         if(paranthesis_count == 2 and coor_len == 2):
-            print "Error: invalid command"
+            sys.stderr.write("Error: invalid command \n")
             return None
         
         if(coor_len % 2 != 0):
-            print "Error: invalid command"
+            sys.stderr.write("Error: invalid command \n")
             return None
         
         for i in coor:
             if("." in i):
-                print "Error: invalid coordinates"
+                sys.stderr.write("Error: invalid coordinates \n")
                 return None
         
         command = Input[0]
         if(command != "a" and command != "c" and command != "r" and command != "g"):
-            print "Error: invalid command"
+            sys.stderr.write("Error: invalid command \n")
             return None
         else:
             Input_list = Input[1:]
             if(command != "g"):
                 Input_list1 = Input_list.split(' ', 1)
                 if(Input_list1[0] != ''):
-                    print "Error: invalid command"
+                    sys.stderr.write("Error: invalid command \n")
                     return None
                 else:
                     if(len(Input_list1) > 1):
                         Input_list2 = Input_list1[1].split('"', 2)
                         if(len(Input_list2) > 2):
                             if(command == "r" and Input_list2[2] != ''):
-                                print "Error: invalid command"
+                                sys.stderr.write("Error: invalid command \n")
                                 return None
                             if(command == "a" and Input_list2[2] == ''):
-                                print "Error: no coordinates found"
+                                sys.stderr.write("Error: no coordinates found \n")
                                 return None
                             if(command == "c" and Input_list2[2] == ''):
-                                print "Error: no coordinates found"
+                                sys.stderr.write("Error: no coordinates found \n")
                                 return None
                         else:
-                            print "Error: invalid command"
+                            sys.stderr.write("Error: invalid command \n")
                             return None
                         for char in invalid_chars:
                             if(char in Input_list2[1]):
-                                print "Error: invalid street name"
+                                sys.stderr.write("Error: invalid street name \n")
                                 return None
                     else:
-                        print "Error: invalid command"
+                        sys.stderr.write("Error: invalid command \n")
                         return None
             elif(command == "g" and Input_list):
-                print "Error: invalid command"
+                sys.stderr.write("Error: invalid command \n")
                 return None
         
         if(command == "a" or command == "c"):

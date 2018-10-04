@@ -1,5 +1,5 @@
 #! /usr/bin/python
-
+import sys
 from parser import Parser
 from graph1 import Graph
 
@@ -20,7 +20,7 @@ def main():
                 elif(data[0] == "r"):
                     GGraph.remove_street(data[1])
                 else:
-                    print "Error: invalid command"
+                    sys.stderr.write("Error: invalid command \n")
 
 if __name__ == '__main__': main()
     
